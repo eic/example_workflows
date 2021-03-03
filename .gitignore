@@ -33,3 +33,9 @@ CondorFile
 *.exe
 *.out
 *.app
+
+
+# ---> Linux
+*~
+\#*
+.\#*
