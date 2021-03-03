@@ -10,7 +10,7 @@ This example features a full workflow from MC event generation to final plots an
 - submission of multible jobs
 
 ##### condor_p6_eicsmear_root/submitSimu
-    - payload shell script epCreateSimuCondor.sh`` creates 1M pythia6
+- payload shell script ``epCreateSimuCondor.sh`` creates 1M pythia6
   events with ``pythiaeRHIC``, moves the result to a destination, then transforms 
   it to a ROOT tree using ``genTree.C``.
 - ``genTree.C`` is a very thin wrapper around eic-smear's ``BuildTree()``
