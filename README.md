@@ -10,11 +10,11 @@ This example features a full workflow from MC event generation to final plots an
 - submission of multible jobs
 
 ##### condor_p6_eicsmear_root/submitSimu
-- payload shell script <pre>epCreateSimuCondor.sh</pre> creates 1M pythia6
-  events with <pre>pythiaeRHIC</pre>, moves the result to a destination, then transforms 
-  it to a ROOT tree using <pre>genTree.C<pre>.
-- <pre>genTree.C</pre> is a very thin wrapper around eic-smear's <pre>BuildTree()</pre>
-- <pre>ep_steer_template.txt</pre> is a steering card template for pythia6, 
+    - payload shell script epCreateSimuCondor.sh`` creates 1M pythia6
+  events with ``pythiaeRHIC``, moves the result to a destination, then transforms 
+  it to a ROOT tree using ``genTree.C``.
+- ``genTree.C`` is a very thin wrapper around eic-smear's ``BuildTree()``
+- ``ep_steer_template.txt`` is a steering card template for pythia6, 
   with a placeholder for the output file name.
 - CondorSubmitter.csh creates and submits a submit description file for five jobs
 
@@ -27,13 +27,13 @@ chmod u+x epCreateSimuCondor.sh
 ```
 
 **Important Note:** 
-This workflow hides a subtlety: <pre>BuildTree()</pre> accepts the name of 
+This workflow hides a subtlety: ``BuildTree()`` accepts the name of 
 a log file in addition to the input txt file.
 Only if such a log file is available is full cross section information saved in the ROOT tree.
 However, often (as in this example), that argument is omitted. In that case, 
-<pre>BuildTree()</pre> automatically searches for a log file with a specific name in a specific location.
+``BuildTree()`` automatically searches for a log file with a specific name in a specific location.
 Therefore, the naming and directory structure (TREES, TXTFILES, LOGFILES) 
-as done in <pre>epCreateSimuCondor.sh</pre> is important. 
+as done in ``epCreateSimuCondor.sh`` is important. 
 
 
 
