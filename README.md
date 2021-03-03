@@ -23,7 +23,7 @@ e.g.
 ```
 chmod u+x CondorSubmitter.csh
 chmod u+x epCreateSimuCondor.sh
-./CondorSubmitter.csh /gpfs02/eic/kkauder/scratch/submittest/generateSimu/ep
+./CondorSubmitter.csh /gpfs02/eic/${USER}/scratch/submittest/generateSimu/ep
 ```
 
 **Important Note:** 
