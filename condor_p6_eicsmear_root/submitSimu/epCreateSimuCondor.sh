@@ -13,6 +13,7 @@ ENRG=$4
 PNRG=$5
 
 BASEDIR=$6
+SOURCE_DIR=$7
 
 KT=1.0
 
@@ -22,17 +23,14 @@ TXTDEST=${BASEDIR}/TXTFILES
 LOGDEST=${BASEDIR}/LOGFILES
 
 # Specific name base for output and logfiles
-NAMEBASE="pythia.ep.${ENRG}x${PNRG}.1Mevents.RadCor=0.Q2=$Q2MIN-$Q2MAX.kT=${KT}_$number.txt"
+NAMEBASE="pythia.ep.${ENRG}x${PNRG}.1Mevents.RadCor=0.Q2=$Q2MIN-$Q2MAX.kT=${KT}_$number"
 
 # Set up steering file in the working directory
-## - A placeholder is in the steer template for ease of readin
+## - A placeholder is in the steer template for ease of reading
 ## - sed with a generic pattern is dangerous though (e.g., can contain '/')
 ## - so instead delete the first line and write it anew
 echo ${NAMEBASE}.txt > $WRKDIR/tmp_${number}.txt #! output file name
-tail -n +2 ep_steer_template.txt >> $WRKDIR/tmp_${number}.txt #! output file name
-
-# copy over the root script - wasteful but flexible
-cp genTree.C $WRKDIR/genTree_${number}.C
+tail -n +2 $SOURCE_DIR/ep_steer_template.txt >> $WRKDIR/tmp_${number}.txt #! output file name
 
 # change to Working Directory
 cd $WRKDIR
@@ -47,10 +45,6 @@ rm tmp_${number}.txt
 mv pythia.ep.${ENRG}x${PNRG}.1Mevents.RadCor=0.Q2=$Q2MIN-$Q2MAX.kT=${KT}_$number.txt $TXTDEST
 
 # Create Tree
-root -b -l -q $WRKDIR/genTree_${number}.C\(\"${TXTDEST}/pythia.ep.${ENRG}x${PNRG}.1Mevents.RadCor=0.Q2=$Q2MIN-$Q2MAX.kT=${KT}_$number.txt\",\"${TREEDEST}\"\)
+root -b -l -q $SOURCE_DIR/genTree.C\(\"${TXTDEST}/pythia.ep.${ENRG}x${PNRG}.1Mevents.RadCor=0.Q2=$Q2MIN-$Q2MAX.kT=${KT}_$number.txt\",\"${TREEDEST}\"\)
 
 date
-
-
-
-
