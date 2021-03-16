@@ -1,28 +1,36 @@
 import sys
 from pandatools import Client
 import os
+import stat
 
-OUTPUT_DIR = '/direct/usatlas+u/podolsky/usatlasdata/EIC/output/'
-SOURCE_DIR = '/direct/usatlas+u/podolsky/usatlasdata/EIC/source/'
-EXECUTABLE   = '/direct/usatlas+u/podolsky/usatlasdata/EIC/source/epCreateSimuCondor.sh'
-LIMIT = 1
+OUTPUT_DIR = '/gpfs02/eic/kkauder/scratch/submittest/generateSimu/panda/'
+SOURCE_DIR = '/gpfs02/eic/kkauder/scratch/spacktest/example_workflows/panda_p6_eicsmear_root/'
+EXECUTABLE   = SOURCE_DIR+'epCreateSimuPanda.sh'
+
+LIMIT = 3
 Q2LO = 0.00001
 Q2HI = 1.0
 ENRG = 10
 PNRG = 100
 
-os.makedirs(OUTPUT_DIR + '/condor', exist_ok=True)
+os.makedirs(OUTPUT_DIR + '/work', exist_ok=True)
 os.makedirs(OUTPUT_DIR + '/TREES', exist_ok=True)
 os.makedirs(OUTPUT_DIR + '/TXTFILES', exist_ok=True)
 os.makedirs(OUTPUT_DIR + '/LOGFILES', exist_ok=True)
 
+# Make writable for osgeic user
+os.chmod(OUTPUT_DIR + '/work', 0o775)
+os.chmod(OUTPUT_DIR + '/TREES', 0o775)
+os.chmod(OUTPUT_DIR + '/TXTFILES', 0o775)
+os.chmod(OUTPUT_DIR + '/LOGFILES', 0o775)
 
-output = "{OUTPUT_DIR}/condor/pythia.ep.{ENRG}x{PNRG}.1Mevents.RadCor=0.Q2={Q2LO}-{Q2HI}.kT=1.0_${{IN/L}}.out".format(OUTPUT_DIR=OUTPUT_DIR, ENRG=ENRG,
-														   PNRG=PNRG, Q2LO=Q2LO, Q2HI=Q2HI)
+# Make executable for osgeic user
+os.chmod(EXECUTABLE, 0o775)
+
+output = "{OUTPUT_DIR}/work/pythia.ep.{ENRG}x{PNRG}.1Mevents.RadCor=0.Q2={Q2LO}-{Q2HI}.kT=1.0_${{IN/L}}.out".format(OUTPUT_DIR=OUTPUT_DIR, ENRG=ENRG,
+                                                                                                                    PNRG=PNRG, Q2LO=Q2LO, Q2HI=Q2HI)
 task_command_line = "{EXECUTABLE} ${{IN/L}} {Q2LO} {Q2HI} {ENRG} {PNRG} {OUTPUT} {SOURCE_DIR}".format(EXECUTABLE=EXECUTABLE, Q2LO=Q2LO, 
-										      Q2HI=Q2HI, ENRG=ENRG, PNRG=PNRG, OUTPUT=OUTPUT_DIR, SOURCE_DIR=SOURCE_DIR)
-
-
+                                                                                                      Q2HI=Q2HI, ENRG=ENRG, PNRG=PNRG, OUTPUT=OUTPUT_DIR, SOURCE_DIR=SOURCE_DIR)
 
 taskParamMap = {}
 taskParamMap['vo'] = 'wlcg'
