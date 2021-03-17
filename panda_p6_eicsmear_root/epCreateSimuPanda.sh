@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/env bash
 
 # Allow group members to change or delete created files
 umask 0002
@@ -26,12 +26,6 @@ LOGDEST=${BASEDIR}/LOGFILES
 
 # Specific name base for output and logfiles
 NAMEBASE="pythia.ep.${ENRG}x${PNRG}.1Mevents.RadCor=0.Q2=$Q2MIN-$Q2MAX.kT=${KT}_$number"
-# touch $WRKDIR/${NAMEBASE}.tmp
-
-# touch $WRKDIR/wrktest
-# touch $TREEDEST/treetest
-# touch $TXTDEST/txttest
-# touch $LOGDEST/logtest
 
 # Set up steering file in the working directory
 ## - A placeholder is in the steer template for ease of reading
@@ -50,9 +44,9 @@ pythiaeRHIC < tmp_${number}.txt > ${LOGDEST}/${NAMEBASE}.log
 rm tmp_${number}.txt 
 
 # Move .txt File to Proper Location
-mv pythia.ep.${ENRG}x${PNRG}.1Mevents.RadCor=0.Q2=$Q2MIN-$Q2MAX.kT=${KT}_$number.txt $TXTDEST
+mv ${NAMEBASE}.txt $TXTDEST
 
 # Create Tree
-root -b -l -q $SOURCE_DIR/genTree.C\(\"${TXTDEST}/pythia.ep.${ENRG}x${PNRG}.1Mevents.RadCor=0.Q2=$Q2MIN-$Q2MAX.kT=${KT}_$number.txt\",\"${TREEDEST}\"\)
+root -b -l -q $SOURCE_DIR/genTree.C\(\"${TXTDEST}/${NAMEBASE}.txt\",\"${TREEDEST}\"\)
 
 date
