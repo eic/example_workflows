@@ -1,29 +1,29 @@
-#!/bin/bash
+#!/bin/env bash
 
 export EIC_LEVEL=dev
 source /cvmfs/eic.opensciencegrid.org/x8664_sl7/MCEG/releases/etc/eic_bash.sh
 
 echo START
-
 date
 
 run=${SLURM_ARRAY_JOB_ID:-1}
 number=${SLURM_ARRAY_TASK_ID:-1}
 
-BASEDIR=`readlink -f $1`
+Q2MIN=${1:-0.00001}
+Q2MAX=${2:-1.0}
 
-Q2MIN=${2:-0.00001}
-Q2MAX=${3:-1.0}
+ENRG=${3:-10}
+PNRG=${4:-100}
 
-ENRG=${4:-10}
-PNRG=${5:-100}
+OUTPUT_DIR=`readlink -f $5`
+SOURCE_DIR=`readlink -f $6`
 
 KT=1.0
 
-WRKDIR=${BASEDIR}/condor
-TREEDEST=${BASEDIR}/TREES
-TXTDEST=${BASEDIR}/TXTFILES
-LOGDEST=${BASEDIR}/LOGFILES
+WRKDIR=${OUTPUT_DIR}/work
+TREEDEST=${OUTPUT_DIR}/TREES
+TXTDEST=${OUTPUT_DIR}/TXTFILES
+LOGDEST=${OUTPUT_DIR}/LOGFILES
 
 mkdir -p ${WRKDIR} ${TREEDEST} ${TXTDEST} ${LOGDEST}
 
@@ -31,14 +31,11 @@ mkdir -p ${WRKDIR} ${TREEDEST} ${TXTDEST} ${LOGDEST}
 NAMEBASE="pythia.ep.${ENRG}x${PNRG}.1Mevents.RadCor=0.Q2=$Q2MIN-$Q2MAX.kT=${KT}_$number"
 
 # Set up steering file in the working directory
-## - A placeholder is in the steer template for ease of readin
+## - A placeholder is in the steer template for ease of reading
 ## - sed with a generic pattern is dangerous though (e.g., can contain '/')
 ## - so instead delete the first line and write it anew
 echo ${NAMEBASE}.txt > $WRKDIR/tmp_${number}.txt #! output file name
-tail -n +2 ep_steer_template.txt >> $WRKDIR/tmp_${number}.txt #! output file name
-
-# copy over the root script - wasteful but flexible
-cp -u genTree.C $WRKDIR/genTree.C
+tail -n +2 $SOURCE_DIR/ep_steer_template.txt >> $WRKDIR/tmp_${number}.txt #! output file name
 
 # change to Working Directory
 cd $WRKDIR
@@ -53,10 +50,6 @@ rm tmp_${number}.txt
 mv ${NAMEBASE}.txt $TXTDEST
 
 # Create Tree
-root -b -l -q $WRKDIR/genTree.C\(\"${TXTDEST}/${NAMEBASE}.txt\",\"${TREEDEST}\"\)
+root -b -l -q $SOURCE_DIR/genTree.C\(\"${TXTDEST}/${NAMEBASE}.txt\",\"${TREEDEST}\"\)
 
 date
-
-
-
-
