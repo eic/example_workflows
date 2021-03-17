@@ -1,7 +1,6 @@
-#!/bin/sh
+#!/bin/env bash
 
 echo START
-
 date
 
 number=$1
@@ -42,9 +41,9 @@ pythiaeRHIC < tmp_${number}.txt > ${LOGDEST}/${NAMEBASE}.log
 rm tmp_${number}.txt 
 
 # Move .txt File to Proper Location
-mv pythia.ep.${ENRG}x${PNRG}.1Mevents.RadCor=0.Q2=$Q2MIN-$Q2MAX.kT=${KT}_$number.txt $TXTDEST
+mv ${NAMEBASE}.txt $TXTDEST
 
 # Create Tree
-root -b -l -q $SOURCE_DIR/genTree.C\(\"${TXTDEST}/pythia.ep.${ENRG}x${PNRG}.1Mevents.RadCor=0.Q2=$Q2MIN-$Q2MAX.kT=${KT}_$number.txt\",\"${TREEDEST}\"\)
+root -b -l -q $SOURCE_DIR/genTree.C\(\"${TXTDEST}/${NAMEBASE}.txt\",\"${TREEDEST}\"\)
 
 date
