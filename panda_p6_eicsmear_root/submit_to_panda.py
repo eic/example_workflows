@@ -3,8 +3,8 @@ from pandatools import Client
 import os
 import stat
 
-OUTPUT_DIR = '/gpfs02/eic/kkauder/scratch/submittest/generateSimu/panda/'
-SOURCE_DIR = '/gpfs02/eic/kkauder/scratch/spacktest/example_workflows/panda_p6_eicsmear_root/'
+OUTPUT_DIR = /gpfs02/eic/${USER}/scratch/submittest/generateSimu/panda/
+SOURCE_DIR = /gpfs02/eic/${USER}/scratch/spacktest/example_workflows/panda_p6_eicsmear_root/
 EXECUTABLE   = SOURCE_DIR+'epCreateSimuPanda.sh'
 
 LIMIT = 3
