@@ -3,11 +3,15 @@ from pandatools import Client
 import os
 import stat
 
-OUTPUT_DIR = /gpfs02/eic/${USER}/scratch/submittest/generateSimu/panda/
-SOURCE_DIR = /gpfs02/eic/${USER}/scratch/spacktest/example_workflows/panda_p6_eicsmear_root/
-EXECUTABLE   = SOURCE_DIR+'epCreateSimuPanda.sh'
+# for ceonvenience
+import getpass
+USER = getpass.getuser()
 
-LIMIT = 3
+OUTPUT_DIR = '/gpfs02/eic/'+USER+'/scratch/submittest/generateSimu/panda/'
+SOURCE_DIR = os.getcwd()+'../simu_payload/'
+EXECUTABLE = os.getcwd()+'/epCreateSimuPanda.sh'
+
+LIMIT = 5
 Q2LO = 0.00001
 Q2HI = 1.0
 ENRG = 10
