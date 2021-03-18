@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SOURCE_DIR=`dirname $0`
-SOURCE_DIR=`readlink -f ${BASEDIR}`
+SOURCE_DIR=`readlink -f ${SOURCE_DIR}`
 OUTPUT=${SOURCE_DIR}/output
 SCRIPT=${SOURCE_DIR}/epCreateSimuSlurm.sh
 LIMIT=${1:-10}
