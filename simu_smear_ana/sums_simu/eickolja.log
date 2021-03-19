@@ -1,0 +1,460 @@
+INFO-gov.bnl.star.offline.scheduler.SchedulerCommandLine.runScheduler(SchedulerCommandLine.java:240):
+Version :"Simple Unified Meta Scheduler 1.10.42" Run at : Fri Mar 19 10:36:03 EDT 2021 run on host eic0108.rcf.bnl.gov 
+
+INFO-gov.bnl.star.offline.scheduler.util.CSHCommandLineTask.run(CSHCommandLineTask.java:156):
+ We got return string=/gpfs02/eic/eickolja/scratch/spacktest/example_workflows/simu_smear_ana/sums_simu
+
+INFO-gov.bnl.star.offline.scheduler.SchedulerCommandLine.runScheduler(SchedulerCommandLine.java:247):
+XML file is: submit_via_sums.xml
+Current working directory is : /gpfs02/eic/eickolja/scratch/spacktest/example_workflows/simu_smear_ana/sums_simu
+
+INFO-gov.bnl.star.offline.scheduler.Scheduler.submit(Scheduler.java:153):
+Scheduling job description contained in: submit_via_sums.xml
+
+INFO-gov.bnl.star.offline.scheduler.initializer.XMLInitializer.analizeRequest(XMLInitializer.java:79):
+Analyzing the request using XMLInitializer : submit_via_sums.xml
+
+INFO-gov.bnl.star.offline.scheduler.initializer.XMLInitializer.analizeRequest(XMLInitializer.java:80):
+Parsing the XML file submit_via_sums.xml
+
+INFO-gov.bnl.star.offline.scheduler.policy.PassivePolicy.assignTargetMachine(PassivePolicy.java:814):
+Assign target with PassivePolicy
+
+INFO-gov.bnl.star.offline.scheduler.Dispatchers.condorg.CondorFastDispatcher.dispatchSubmit(CondorFastDispatcher.java:148):
+Dispatching using CondorFastDispatcher: "
+./epCreateSimuSums.sh $JOBINDEX 0.00001 1.0 10 100 /gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/
+
+
+ "
+
+INFO-gov.bnl.star.offline.scheduler.Dispatchers.CSHApplication.makeScriptFileExecutable(CSHApplication.java:218):
+Executing "/bin/chmod +x /gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/scheduler/sched98A834F17B019562963FA116555F85EF_4.csh"
+
+INFO-gov.bnl.star.offline.scheduler.Dispatchers.CSHApplication.makeScriptFileExecutable(CSHApplication.java:218):
+Executing "/bin/chmod +x /gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/scheduler/sched98A834F17B019562963FA116555F85EF_3.csh"
+
+INFO-gov.bnl.star.offline.scheduler.Dispatchers.CSHApplication.makeScriptFileExecutable(CSHApplication.java:218):
+Executing "/bin/chmod +x /gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/scheduler/sched98A834F17B019562963FA116555F85EF_2.csh"
+
+INFO-gov.bnl.star.offline.scheduler.Dispatchers.CSHApplication.makeScriptFileExecutable(CSHApplication.java:218):
+Executing "/bin/chmod +x /gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/scheduler/sched98A834F17B019562963FA116555F85EF_1.csh"
+
+INFO-gov.bnl.star.offline.scheduler.Dispatchers.CSHApplication.makeScriptFileExecutable(CSHApplication.java:218):
+Executing "/bin/chmod +x /gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/scheduler/sched98A834F17B019562963FA116555F85EF_0.csh"
+
+INFO-gov.bnl.star.offline.scheduler.util.CSHCommandLineTask.run(CSHCommandLineTask.java:156):
+ We got return string=Submitting job(s)
+** Proc 12570.0:
+ClusterId = 12570
+Environment = ""
+UserLog = "/gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/scheduler/sched98A834F17B019562963FA116555F85EF.condor.log"
+MaxHosts = 1
+RequestMemory = 2000
+RequestCpus = 1
+MinHosts = 1
+RequestDisk = ifThenElse(DiskUsage =!= undefined,DiskUsage,1000 * 5000)
+Requirements = (TARGET.Arch == "X86_64") && (TARGET.OpSys == "LINUX") && (TARGET.Disk >= RequestDisk) && (TARGET.Memory >= RequestMemory) && ((TARGET.FileSystemDomain == MY.FileSystemDomain) || (TARGET.HasFileTransfer))
+RootDir = "/"
+CurrentHosts = 0
+JobPrio = 10
+WantRemoteSyscalls = false
+Cmd = "/bin/sh"
+WantCheckpoint = false
+JobNotification = 0
+WantRemoteIO = true
+StreamOut = false
+Rank = ((Activity == "Idle"))
+In = "/dev/null"
+DiskUsage = 938
+TransferIn = false
+Out = "/gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/LOGFILES/98A834F17B019562963FA116555F85EF_4.out"
+HookKeyword = "DEFAULT"
+CommittedSlotTime = 0
+TotalSuspensions = 0
+LastSuspensionTime = 0
+CommittedTime = 0
+NumRestarts = 0
+NumJobStarts = 0
+Iwd = "/gpfs02/eic/eickolja/scratch/spacktest/example_workflows/simu_smear_ana/sums_simu"
+NumJobCompletions = 0
+CumulativeRemoteUserCpu = 0.0
+NumCkpts = 0
+ShouldTransferFiles = "IF_NEEDED"
+ExitStatus = 0
+CumulativeRemoteSysCpu = 0.0
+NiceUser = false
+CoreSize = 0
+CumulativeSlotTime = 0
+EnteredCurrentStatus = 1616164565
+QDate = 1616164565
+WhenToTransferOutput = "ON_EXIT"
+TargetType = "Machine"
+RemoteWallClockTime = 0.0
+Arguments = "-c exec' '/gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/scheduler/sched98A834F17B019562963FA116555F85EF_4.csh"
+StreamErr = false
+CompletionDate = 0
+Err = "/gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/LOGFILES/98A834F17B019562963FA116555F85EF_4.err"
+BufferBlockSize = 32768
+Owner = "eickolja"
+RemoteSysCpu = 0.0
+LocalSysCpu = 0.0
+OnExitRemove = true
+ExecutableSize = 938
+LocalUserCpu = 0.0
+RemoteUserCpu = 0.0
+TransferInputSizeMB = 0
+CondorPlatform = "$CondorPlatform: X86_64-CentOS_7.7 $"
+NumSystemHolds = 0
+CumulativeSuspensionTime = 0
+EncryptExecuteDirectory = false
+CommittedSuspensionTime = 0
+FileSystemDomain = "rcf.bnl.gov"
+PeriodicRemove = (NumJobStarts >= 1 && JobStatus == 1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu + RemoteSysCpu) / (CurrentTime - JobCurrentStartDate) < 0.1)) || (((CurrentTime - EnteredCurrentStatus) > (2 * 24 * 3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+JobLeaseDuration = 2400
+RealExperiment = "eic"
+LeaveJobInQueue = false
+KillSig = "SIGINT"
+MyType = "Job"
+CondorVersion = "$CondorVersion: 8.8.8 Mar 23 2020 BuildID: racf PRE-RELEASE-UWCS $"
+ExitBySignal = false
+JobUniverse = 5
+PeriodicRelease = false
+PeriodicHold = false
+OnExitHold = false
+ImageSize = 938
+BufferSize = 524288
+JobStatus = 1
+ProcId = 0
+
+** Proc 12570.1:
+ClusterId = 12570
+Environment = ""
+UserLog = "/gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/scheduler/sched98A834F17B019562963FA116555F85EF.condor.log"
+MaxHosts = 1
+RequestMemory = 2000
+RequestCpus = 1
+MinHosts = 1
+RequestDisk = ifThenElse(DiskUsage =!= undefined,DiskUsage,1000 * 5000)
+Requirements = (TARGET.Arch == "X86_64") && (TARGET.OpSys == "LINUX") && (TARGET.Disk >= RequestDisk) && (TARGET.Memory >= RequestMemory) && ((TARGET.FileSystemDomain == MY.FileSystemDomain) || (TARGET.HasFileTransfer))
+RootDir = "/"
+CurrentHosts = 0
+JobPrio = 10
+WantRemoteSyscalls = false
+Cmd = "/bin/sh"
+WantCheckpoint = false
+JobNotification = 0
+WantRemoteIO = true
+StreamOut = false
+Rank = ((Activity == "Idle"))
+In = "/dev/null"
+DiskUsage = 938
+TransferIn = false
+HookKeyword = "DEFAULT"
+CommittedSlotTime = 0
+TotalSuspensions = 0
+LastSuspensionTime = 0
+CommittedTime = 0
+NumRestarts = 0
+NumJobStarts = 0
+Iwd = "/gpfs02/eic/eickolja/scratch/spacktest/example_workflows/simu_smear_ana/sums_simu"
+NumJobCompletions = 0
+CumulativeRemoteUserCpu = 0.0
+NumCkpts = 0
+ShouldTransferFiles = "IF_NEEDED"
+ExitStatus = 0
+CumulativeRemoteSysCpu = 0.0
+NiceUser = false
+CoreSize = 0
+CumulativeSlotTime = 0
+EnteredCurrentStatus = 1616164565
+QDate = 1616164565
+WhenToTransferOutput = "ON_EXIT"
+TargetType = "Machine"
+RemoteWallClockTime = 0.0
+StreamErr = false
+CompletionDate = 0
+BufferBlockSize = 32768
+Owner = "eickolja"
+RemoteSysCpu = 0.0
+LocalSysCpu = 0.0
+OnExitRemove = true
+ExecutableSize = 938
+LocalUserCpu = 0.0
+RemoteUserCpu = 0.0
+TransferInputSizeMB = 0
+CondorPlatform = "$CondorPlatform: X86_64-CentOS_7.7 $"
+NumSystemHolds = 0
+CumulativeSuspensionTime = 0
+EncryptExecuteDirectory = false
+CommittedSuspensionTime = 0
+FileSystemDomain = "rcf.bnl.gov"
+PeriodicRemove = (NumJobStarts >= 1 && JobStatus == 1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu + RemoteSysCpu) / (CurrentTime - JobCurrentStartDate) < 0.1)) || (((CurrentTime - EnteredCurrentStatus) > (2 * 24 * 3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+JobLeaseDuration = 2400
+RealExperiment = "eic"
+LeaveJobInQueue = false
+KillSig = "SIGINT"
+MyType = "Job"
+CondorVersion = "$CondorVersion: 8.8.8 Mar 23 2020 BuildID: racf PRE-RELEASE-UWCS $"
+ExitBySignal = false
+JobUniverse = 5
+PeriodicRelease = false
+PeriodicHold = false
+OnExitHold = false
+ImageSize = 938
+BufferSize = 524288
+JobStatus = 1
+ProcId = 1
+Arguments = "-c exec' '/gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/scheduler/sched98A834F17B019562963FA116555F85EF_3.csh"
+Err = "/gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/LOGFILES/98A834F17B019562963FA116555F85EF_3.err"
+Out = "/gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/LOGFILES/98A834F17B019562963FA116555F85EF_3.out"
+
+** Proc 12570.2:
+ClusterId = 12570
+Environment = ""
+UserLog = "/gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/scheduler/sched98A834F17B019562963FA116555F85EF.condor.log"
+MaxHosts = 1
+RequestMemory = 2000
+RequestCpus = 1
+MinHosts = 1
+RequestDisk = ifThenElse(DiskUsage =!= undefined,DiskUsage,1000 * 5000)
+Requirements = (TARGET.Arch == "X86_64") && (TARGET.OpSys == "LINUX") && (TARGET.Disk >= RequestDisk) && (TARGET.Memory >= RequestMemory) && ((TARGET.FileSystemDomain == MY.FileSystemDomain) || (TARGET.HasFileTransfer))
+RootDir = "/"
+CurrentHosts = 0
+JobPrio = 10
+WantRemoteSyscalls = false
+Cmd = "/bin/sh"
+WantCheckpoint = false
+JobNotification = 0
+WantRemoteIO = true
+StreamOut = false
+Rank = ((Activity == "Idle"))
+In = "/dev/null"
+DiskUsage = 938
+TransferIn = false
+HookKeyword = "DEFAULT"
+CommittedSlotTime = 0
+TotalSuspensions = 0
+LastSuspensionTime = 0
+CommittedTime = 0
+NumRestarts = 0
+NumJobStarts = 0
+Iwd = "/gpfs02/eic/eickolja/scratch/spacktest/example_workflows/simu_smear_ana/sums_simu"
+NumJobCompletions = 0
+CumulativeRemoteUserCpu = 0.0
+NumCkpts = 0
+ShouldTransferFiles = "IF_NEEDED"
+ExitStatus = 0
+CumulativeRemoteSysCpu = 0.0
+NiceUser = false
+CoreSize = 0
+CumulativeSlotTime = 0
+EnteredCurrentStatus = 1616164565
+QDate = 1616164565
+WhenToTransferOutput = "ON_EXIT"
+TargetType = "Machine"
+RemoteWallClockTime = 0.0
+StreamErr = false
+CompletionDate = 0
+BufferBlockSize = 32768
+Owner = "eickolja"
+RemoteSysCpu = 0.0
+LocalSysCpu = 0.0
+OnExitRemove = true
+ExecutableSize = 938
+LocalUserCpu = 0.0
+RemoteUserCpu = 0.0
+TransferInputSizeMB = 0
+CondorPlatform = "$CondorPlatform: X86_64-CentOS_7.7 $"
+NumSystemHolds = 0
+CumulativeSuspensionTime = 0
+EncryptExecuteDirectory = false
+CommittedSuspensionTime = 0
+FileSystemDomain = "rcf.bnl.gov"
+PeriodicRemove = (NumJobStarts >= 1 && JobStatus == 1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu + RemoteSysCpu) / (CurrentTime - JobCurrentStartDate) < 0.1)) || (((CurrentTime - EnteredCurrentStatus) > (2 * 24 * 3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+JobLeaseDuration = 2400
+RealExperiment = "eic"
+LeaveJobInQueue = false
+KillSig = "SIGINT"
+MyType = "Job"
+CondorVersion = "$CondorVersion: 8.8.8 Mar 23 2020 BuildID: racf PRE-RELEASE-UWCS $"
+ExitBySignal = false
+JobUniverse = 5
+PeriodicRelease = false
+PeriodicHold = false
+OnExitHold = false
+ImageSize = 938
+BufferSize = 524288
+JobStatus = 1
+ProcId = 2
+Arguments = "-c exec' '/gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/scheduler/sched98A834F17B019562963FA116555F85EF_2.csh"
+Err = "/gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/LOGFILES/98A834F17B019562963FA116555F85EF_2.err"
+Out = "/gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/LOGFILES/98A834F17B019562963FA116555F85EF_2.out"
+
+** Proc 12570.3:
+ClusterId = 12570
+Environment = ""
+UserLog = "/gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/scheduler/sched98A834F17B019562963FA116555F85EF.condor.log"
+MaxHosts = 1
+RequestMemory = 2000
+RequestCpus = 1
+MinHosts = 1
+RequestDisk = ifThenElse(DiskUsage =!= undefined,DiskUsage,1000 * 5000)
+Requirements = (TARGET.Arch == "X86_64") && (TARGET.OpSys == "LINUX") && (TARGET.Disk >= RequestDisk) && (TARGET.Memory >= RequestMemory) && ((TARGET.FileSystemDomain == MY.FileSystemDomain) || (TARGET.HasFileTransfer))
+RootDir = "/"
+CurrentHosts = 0
+JobPrio = 10
+WantRemoteSyscalls = false
+Cmd = "/bin/sh"
+WantCheckpoint = false
+JobNotification = 0
+WantRemoteIO = true
+StreamOut = false
+Rank = ((Activity == "Idle"))
+In = "/dev/null"
+DiskUsage = 938
+TransferIn = false
+HookKeyword = "DEFAULT"
+CommittedSlotTime = 0
+TotalSuspensions = 0
+LastSuspensionTime = 0
+CommittedTime = 0
+NumRestarts = 0
+NumJobStarts = 0
+Iwd = "/gpfs02/eic/eickolja/scratch/spacktest/example_workflows/simu_smear_ana/sums_simu"
+NumJobCompletions = 0
+CumulativeRemoteUserCpu = 0.0
+NumCkpts = 0
+ShouldTransferFiles = "IF_NEEDED"
+ExitStatus = 0
+CumulativeRemoteSysCpu = 0.0
+NiceUser = false
+CoreSize = 0
+CumulativeSlotTime = 0
+EnteredCurrentStatus = 1616164565
+QDate = 1616164565
+WhenToTransferOutput = "ON_EXIT"
+TargetType = "Machine"
+RemoteWallClockTime = 0.0
+StreamErr = false
+CompletionDate = 0
+BufferBlockSize = 32768
+Owner = "eickolja"
+RemoteSysCpu = 0.0
+LocalSysCpu = 0.0
+OnExitRemove = true
+ExecutableSize = 938
+LocalUserCpu = 0.0
+RemoteUserCpu = 0.0
+TransferInputSizeMB = 0
+CondorPlatform = "$CondorPlatform: X86_64-CentOS_7.7 $"
+NumSystemHolds = 0
+CumulativeSuspensionTime = 0
+EncryptExecuteDirectory = false
+CommittedSuspensionTime = 0
+FileSystemDomain = "rcf.bnl.gov"
+PeriodicRemove = (NumJobStarts >= 1 && JobStatus == 1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu + RemoteSysCpu) / (CurrentTime - JobCurrentStartDate) < 0.1)) || (((CurrentTime - EnteredCurrentStatus) > (2 * 24 * 3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+JobLeaseDuration = 2400
+RealExperiment = "eic"
+LeaveJobInQueue = false
+KillSig = "SIGINT"
+MyType = "Job"
+CondorVersion = "$CondorVersion: 8.8.8 Mar 23 2020 BuildID: racf PRE-RELEASE-UWCS $"
+ExitBySignal = false
+JobUniverse = 5
+PeriodicRelease = false
+PeriodicHold = false
+OnExitHold = false
+ImageSize = 938
+BufferSize = 524288
+JobStatus = 1
+ProcId = 3
+Arguments = "-c exec' '/gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/scheduler/sched98A834F17B019562963FA116555F85EF_1.csh"
+Err = "/gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/LOGFILES/98A834F17B019562963FA116555F85EF_1.err"
+Out = "/gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/LOGFILES/98A834F17B019562963FA116555F85EF_1.out"
+
+** Proc 12570.4:
+ClusterId = 12570
+Environment = ""
+UserLog = "/gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/scheduler/sched98A834F17B019562963FA116555F85EF.condor.log"
+MaxHosts = 1
+RequestMemory = 2000
+RequestCpus = 1
+MinHosts = 1
+RequestDisk = ifThenElse(DiskUsage =!= undefined,DiskUsage,1000 * 5000)
+Requirements = (TARGET.Arch == "X86_64") && (TARGET.OpSys == "LINUX") && (TARGET.Disk >= RequestDisk) && (TARGET.Memory >= RequestMemory) && ((TARGET.FileSystemDomain == MY.FileSystemDomain) || (TARGET.HasFileTransfer))
+RootDir = "/"
+CurrentHosts = 0
+JobPrio = 10
+WantRemoteSyscalls = false
+Cmd = "/bin/sh"
+WantCheckpoint = false
+JobNotification = 0
+WantRemoteIO = true
+StreamOut = false
+Rank = ((Activity == "Idle"))
+In = "/dev/null"
+DiskUsage = 938
+TransferIn = false
+HookKeyword = "DEFAULT"
+CommittedSlotTime = 0
+TotalSuspensions = 0
+LastSuspensionTime = 0
+CommittedTime = 0
+NumRestarts = 0
+NumJobStarts = 0
+Iwd = "/gpfs02/eic/eickolja/scratch/spacktest/example_workflows/simu_smear_ana/sums_simu"
+NumJobCompletions = 0
+CumulativeRemoteUserCpu = 0.0
+NumCkpts = 0
+ShouldTransferFiles = "IF_NEEDED"
+ExitStatus = 0
+CumulativeRemoteSysCpu = 0.0
+NiceUser = false
+CoreSize = 0
+CumulativeSlotTime = 0
+EnteredCurrentStatus = 1616164565
+QDate = 1616164565
+WhenToTransferOutput = "ON_EXIT"
+TargetType = "Machine"
+RemoteWallClockTime = 0.0
+StreamErr = false
+CompletionDate = 0
+BufferBlockSize = 32768
+Owner = "eickolja"
+RemoteSysCpu = 0.0
+LocalSysCpu = 0.0
+OnExitRemove = true
+ExecutableSize = 938
+LocalUserCpu = 0.0
+RemoteUserCpu = 0.0
+TransferInputSizeMB = 0
+CondorPlatform = "$CondorPlatform: X86_64-CentOS_7.7 $"
+NumSystemHolds = 0
+CumulativeSuspensionTime = 0
+EncryptExecuteDirectory = false
+CommittedSuspensionTime = 0
+FileSystemDomain = "rcf.bnl.gov"
+PeriodicRemove = (NumJobStarts >= 1 && JobStatus == 1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu + RemoteSysCpu) / (CurrentTime - JobCurrentStartDate) < 0.1)) || (((CurrentTime - EnteredCurrentStatus) > (2 * 24 * 3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+JobLeaseDuration = 2400
+RealExperiment = "eic"
+LeaveJobInQueue = false
+KillSig = "SIGINT"
+MyType = "Job"
+CondorVersion = "$CondorVersion: 8.8.8 Mar 23 2020 BuildID: racf PRE-RELEASE-UWCS $"
+ExitBySignal = false
+JobUniverse = 5
+PeriodicRelease = false
+PeriodicHold = false
+OnExitHold = false
+ImageSize = 938
+BufferSize = 524288
+JobStatus = 1
+ProcId = 4
+Arguments = "-c exec' '/gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/scheduler/sched98A834F17B019562963FA116555F85EF_0.csh"
+Err = "/gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/LOGFILES/98A834F17B019562963FA116555F85EF_0.err"
+Out = "/gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/LOGFILES/98A834F17B019562963FA116555F85EF_0.out"
+
+INFO-gov.bnl.star.offline.scheduler.Scheduler.submit(Scheduler.java:191):
+Job dispatched: submit_via_sums.xml
+
+
