@@ -2,8 +2,6 @@
 
 <job name="sumstest" nProcesses="&LIMIT;" >
  <command>
-find
-pwd
 ./epCreateSimuSums.sh $JOBINDEX &Q2LO; &Q2HI; &ENRG; &PNRG; &OUTPUT_DIR;
  </command>
 
