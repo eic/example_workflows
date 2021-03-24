@@ -1,5 +1,8 @@
 #!/bin/env bash
 
+export EIC_LEVEL=dev
+source /cvmfs/eic.opensciencegrid.org/x8664_sl7/MCEG/releases/etc/eic_bash.sh
+
 echo START
 date
 
