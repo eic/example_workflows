@@ -21,7 +21,7 @@ mkdir -pv ${OUTPUT_DIR}/TXTFILES
 mkdir -pv ${OUTPUT_DIR}/LOGFILES
 
 # Simulation parameters
-set LIMIT = 1
+set LIMIT = 5
 set Q2LO = 0.00001
 set Q2HI = 1.0
 set ENRG = 10
