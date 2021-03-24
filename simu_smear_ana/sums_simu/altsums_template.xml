@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<job name="sumstest2" nProcesses="&LIMIT;" >
+ <command>
+# Try to keep it general enough to work in bash and csh!
+
+# Not necessary, just convenient
+# We could use the xml entities directly
+set number=$JOBINDEX
+set Q2MIN=&Q2LO;
+set Q2MAX=&Q2HI;
+set ENRG=&ENRG;
+set PNRG=&PNRG;
+set KT=1.0
+
+# Specific name base for output and logfiles
+set NAMEBASE="pythia.ep.${ENRG}x${PNRG}.1Mevents.RadCor=0.Q2=$Q2MIN-$Q2MAX.kT=${KT}_$number"
+
+# Set up steering file in the working directory
+## - A placeholder is in the steer template for ease of reading
+## - sed with a generic pattern is dangerous though (e.g., can contain '/')
+## - so instead delete the first line and write it anew
+echo ${NAMEBASE}.txt > tmp_${number}.txt
+tail -n +2 ep_steer_template.txt >> tmp_${number}.txt
+
+# Run Pythia
+## little xml snag, replace "less than" sign
+pythiaeRHIC &lt; tmp_${number}.txt > ${NAMEBASE}.log
+
+# Create Tree
+root -b -l -q genTree.C\(\"${NAMEBASE}.txt\",\".\"\)
+ </command>
+
+ <!-- Move output from scratch to the appropriate places -->
+ <output fromScratch="pythia*.txt" toURL="file:&OUTPUT_DIR;/TXTFILES/" />
+ <output fromScratch="pythia*.log" toURL="file:&OUTPUT_DIR;/LOGFILES/" />
+ <output fromScratch="pythia*.root" toURL="file:&OUTPUT_DIR;/TREES/" />
+
+ <stdout URL="file:&OUTPUT_DIR;/LOGFILES/$JOBID.out" />
+ <stderr URL="file:&OUTPUT_DIR;/LOGFILES/$JOBID.err" />
+
+ <SandBox>
+   <Package> 
+    <File>file:&PAYLOAD_DIR;/../sums_simu/epCreateSimuSums.sh</File> 
+    <File>file:&PAYLOAD_DIR;</File> 
+   </Package>
+ </SandBox>
+
+ <Generator>
+  <Location>&OUTPUT_DIR;/scheduler/</Location>
+ </Generator>
+
+</job>
