@@ -8,7 +8,7 @@ import getpass
 USER = getpass.getuser()
 
 OUTPUT_DIR = '/gpfs02/eic/'+USER+'/scratch/submittest/generateSimu/panda/'
-SOURCE_DIR = os.getcwd()+'../simu_payload/'
+SOURCE_DIR = os.getcwd()+'/../simu_payload/'
 EXECUTABLE = os.getcwd()+'/epCreateSimuPanda.sh'
 
 LIMIT = 5
