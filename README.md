@@ -218,3 +218,23 @@ Further reading:
 - Please contact Kolja for a more detailed Howto google doc.
 
 ## Some thoughts and open questions
+**Sandboxing** is very convenient. Last time I checked,
+  Condor had no (simple) tools for that. How do **PanDA** and **Slurm** do it?
+
+**logfiles and other helper files**:
+- **SUMS** is very chatty, and the created files are cryptic. For every task it creates:
+    - [longhash].session.xml in the user directory.
+    This is the file to use to modify, kill, resubmit a task.
+    - $USER.log in the user directory.
+    - schedTemplateExp.xml if using the templated version
+    - [longhash]\_[jobnumber].list, [longhash]\_[jobnumber].csh, and [longhash].condor, [longhash].report in the \<generator\> directory.
+
+    That's not necessarily bad, but it would be nice to have options for cleanup, suppression, or more intuitively named files.
+- **PanDA** provides a wealth of information from the web interface, but it would be good to have a way to route (copies of?)
+log files, stdout, stderr files similar to SUMS' \<stdout URL= ... \> feature.
+- **Slurm**: TBD. I haven't tested yet
+
+Both **PanDA** and **SUMS** combine stdout from the payload with
+(rather large amounts of) additional output from the wrappers/pilots.
+A simple way to separate out the parts generated
+by the true payload would be helpful. 
