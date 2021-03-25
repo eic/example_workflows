@@ -5,7 +5,7 @@ The goal is to streamline them into simple
 and transparent scenarios that work in many different environments.
 
 ### pythia6 → eic-smear → histos
-This example, found under the ``simu_smear_ana`` direcory,
+This example, found under the ``simu_smear_ana`` directory,
 features a full workflow from MC event generation to final plots and illustrates
 - running external executables
 - reading, writing, moving large amounts of data
@@ -237,4 +237,4 @@ log files, stdout, stderr files similar to SUMS' \<stdout URL= ... \> feature.
 Both **PanDA** and **SUMS** combine stdout from the payload with
 (rather large amounts of) additional output from the wrappers/pilots.
 A simple way to separate out the parts generated
-by the true payload would be helpful. 
+by the true payload would be helpful.
