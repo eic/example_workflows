@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<!--
+# Prepare with
+set=OUTPUT_DIR /gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums
+mkdir -p ${OUTPUT_DIR}/work || exit
+mkdir -p ${OUTPUT_DIR}/TREES
+mkdir -p ${OUTPUT_DIR}/TXTFILES
+mkdir -p ${OUTPUT_DIR}/LOGFILES
+mkdir -p ${OUTPUT_DIR}/scheduler
+# Esxecute with
+sums-submit sums_notemplate.xml
+-->
+
+<job name="sumstest" nProcesses="5" >
+
+  <command>
+./epCreateSimuSums.sh $JOBINDEX 0.00001 1.0 10 100 /gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/
+ </command>
+
+ <stdout URL="file:/gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/LOGFILES/$JOBID.out" />
+ <stderr URL="file:/gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/LOGFILES/$JOBID.err" />
+
+ <SandBox>
+   <Package> 
+    <File>file:/gpfs02/eic/kkauder/scratch/spacktest/example_workflows/simu_smear_ana/sums_simu/epCreateSimuSums.sh</File> 
+    <File>file:/gpfs02/eic/kkauder/scratch/spacktest/example_workflows/simu_smear_ana/simu_payload/</File> 
+   </Package>
+ </SandBox>
+
+ <Generator>
+  <Location>/gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/scheduler/</Location>
+ </Generator>
+
+</job>

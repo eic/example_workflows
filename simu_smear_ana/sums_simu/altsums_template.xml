@@ -2,7 +2,12 @@
 
 <job name="sumstest2" nProcesses="&LIMIT;" >
  <command>
-# Try to keep it general enough to work in bash and csh!
+
+# Expect csh node. Adapt if that's false
+export EIC_LEVEL=dev
+source /cvmfs/eic.opensciencegrid.org/x8664_sl7/MCEG/releases/etc/eic_cshrc.csh
+   
+# From here on, should be general enough for either bash or csh
 
 # Not necessary, just convenient
 # We could use the xml entities directly
