@@ -16,16 +16,14 @@ ENRG=${3:-10}
 PNRG=${4:-100}
 
 OUTPUT_DIR=`readlink -f $5`
-SOURCE_DIR=`readlink -f $6`
+PAYLOAD_DIR=`readlink -f $6`
 
 KT=1.0
 
-WRKDIR=${OUTPUT_DIR}/work
+WRKDIR=${OUTPUT_DIR}/slurm
 TREEDEST=${OUTPUT_DIR}/TREES
 TXTDEST=${OUTPUT_DIR}/TXTFILES
 LOGDEST=${OUTPUT_DIR}/LOGFILES
-
-mkdir -p ${WRKDIR} ${TREEDEST} ${TXTDEST} ${LOGDEST}
 
 # Specific name base for output and logfiles
 NAMEBASE="pythia.ep.${ENRG}x${PNRG}.1Mevents.RadCor=0.Q2=$Q2MIN-$Q2MAX.kT=${KT}_$number"
@@ -35,7 +33,7 @@ NAMEBASE="pythia.ep.${ENRG}x${PNRG}.1Mevents.RadCor=0.Q2=$Q2MIN-$Q2MAX.kT=${KT}_
 ## - sed with a generic pattern is dangerous though (e.g., can contain '/')
 ## - so instead delete the first line and write it anew
 echo ${NAMEBASE}.txt > $WRKDIR/tmp_${number}.txt
-tail -n +2 $SOURCE_DIR/ep_steer_template.txt >> $WRKDIR/tmp_${number}.txt
+tail -n +2 $PAYLOAD_DIR/ep_steer_template.txt >> $WRKDIR/tmp_${number}.txt
 
 # change to Working Directory
 cd $WRKDIR
@@ -50,6 +48,6 @@ rm tmp_${number}.txt
 mv ${NAMEBASE}.txt $TXTDEST
 
 # Create Tree
-root -b -l -q $SOURCE_DIR/genTree.C\(\"${TXTDEST}/${NAMEBASE}.txt\",\"${TREEDEST}\"\)
+root -b -l -q $PAYLOAD_DIR/genTree.C\(\"${TXTDEST}/${NAMEBASE}.txt\",\"${TREEDEST}\"\)
 
 date
