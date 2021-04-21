@@ -8,28 +8,25 @@ mkdir -p ${OUTPUT_DIR}/TREES
 mkdir -p ${OUTPUT_DIR}/TXTFILES
 mkdir -p ${OUTPUT_DIR}/LOGFILES
 mkdir -p ${OUTPUT_DIR}/scheduler
+# Esxecute with
+sums-submit sums_notemplate.xml
 -->
 
-<!-- <job maxFilesPerProcess="1" fileListSyntax="paths" mail="false" filesPerHour="1"> -->
 <job name="sumstest" nProcesses="5" >
-  <!-->command signature: epCreateSimuSums.sh $NUMBER $Q2LO $Q2HI $ENRG $PNRG $OUTPUT_DIR $SOURCE_DIR <-->
- <command>
+
+  <command>
 ./epCreateSimuSums.sh $JOBINDEX 0.00001 1.0 10 100 /gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/
-<!-- pwd -->
-<!-- echo $JOBID -->
  </command>
 
  <stdout URL="file:/gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/LOGFILES/$JOBID.out" />
  <stderr URL="file:/gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/LOGFILES/$JOBID.err" />
- <!-- <input URL="file:" /> -->
 
  <SandBox>
    <Package> 
     <File>file:/gpfs02/eic/kkauder/scratch/spacktest/example_workflows/simu_smear_ana/sums_simu/epCreateSimuSums.sh</File> 
-    <File>file:/gpfs02/eic/kkauder/scratch/spacktest/example_workflows/simu_smear_ana/simu_payload</File> 
+    <File>file:/gpfs02/eic/kkauder/scratch/spacktest/example_workflows/simu_smear_ana/simu_payload/</File> 
    </Package>
  </SandBox>
-
 
  <Generator>
   <Location>/gpfs02/eic/eickolja/scratch/submittest/generateSimu/sums/scheduler/</Location>

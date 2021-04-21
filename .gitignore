@@ -1,6 +1,8 @@
 ## Temporary files
 CondorFile
 *.session.xml
+*.log
+schedTemplateExp.xml
 
 # Prerequisites
 *.d

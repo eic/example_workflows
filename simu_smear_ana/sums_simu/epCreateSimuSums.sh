@@ -1,5 +1,8 @@
 #!/bin/env bash
 
+export EIC_LEVEL=dev
+source /cvmfs/eic.opensciencegrid.org/x8664_sl7/MCEG/releases/etc/eic_bash.sh
+
 echo START
 date
 
@@ -16,7 +19,7 @@ BASEDIR=$6
 KT=1.0
 
 WRKDIR=.
-SOURCE_DIR=./simu_payload
+SOURCE_DIR=.
 TREEDEST=${BASEDIR}/TREES
 TXTDEST=${BASEDIR}/TXTFILES
 LOGDEST=${BASEDIR}/LOGFILES
@@ -28,8 +31,8 @@ NAMEBASE="pythia.ep.${ENRG}x${PNRG}.1Mevents.RadCor=0.Q2=$Q2MIN-$Q2MAX.kT=${KT}_
 ## - A placeholder is in the steer template for ease of reading
 ## - sed with a generic pattern is dangerous though (e.g., can contain '/')
 ## - so instead delete the first line and write it anew
-echo ${NAMEBASE}.txt > $WRKDIR/tmp_${number}.txt #! output file name
-tail -n +2 $SOURCE_DIR/ep_steer_template.txt >> $WRKDIR/tmp_${number}.txt #! output file name
+echo ${NAMEBASE}.txt > $WRKDIR/tmp_${number}.txt
+tail -n +2 $SOURCE_DIR/ep_steer_template.txt >> $WRKDIR/tmp_${number}.txt
 
 # change to Working Directory
 cd $WRKDIR

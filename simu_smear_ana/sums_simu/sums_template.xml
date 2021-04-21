@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<job name="sumstest" nProcesses="&LIMIT;" >
+ <command>
+./epCreateSimuSums.sh $JOBINDEX &Q2LO; &Q2HI; &ENRG; &PNRG; &OUTPUT_DIR;
+ </command>
+
+ <stdout URL="file:&OUTPUT_DIR;/LOGFILES/$JOBID.out" />
+ <stderr URL="file:&OUTPUT_DIR;/LOGFILES/$JOBID.err" />
+
+ <SandBox>
+   <Package> 
+    <File>file:&PAYLOAD_DIR;/../sums_simu/epCreateSimuSums.sh</File> 
+    <File>file:&PAYLOAD_DIR;</File> 
+   </Package>
+ </SandBox>
+
+ <Generator>
+  <Location>&OUTPUT_DIR;/scheduler/</Location>
+ </Generator>
+
+</job>
